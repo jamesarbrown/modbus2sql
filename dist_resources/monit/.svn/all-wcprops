@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/monit
+END
+README.TXT
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/monit/README.TXT
+END
+modbus2sql.monit
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/monit/modbus2sql.monit
+END
+X0.host
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/monit/X0.host
+END

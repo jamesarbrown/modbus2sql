@@ -1,0 +1,24 @@
+1536,"Generator total watts",-99999999,99999999,1,"W","32S",0,1537
+1537,"Generator total watts",-99999999,99999999,1,"W","32S",0,
+1538,"Generator L1 VA",0,99999999,1,"VA",32,0,1539
+1539,"Generator L1 VA",0,99999999,1,"VA",32,0,
+1540,"Generator L2 VA",0,99999999,1,"VA",32,0,1541
+1541,"Generator L2 VA",0,99999999,1,"VA",32,0,
+1542,"Generator L3 VA",0,99999999,1,"VA",32,0,1543
+1543,"Generator L3 VA",0,99999999,1,"VA",32,0,
+1544,"Generator total VA",0,99999999,1,"VA",32,0,1545
+1545,"Generator total VA",0,99999999,1,"VA",32,0,
+1546,"Generator L1 VAr",0,99999999,1,"VAr",32,0,1547
+1547,"Generator L1 VAr",0,99999999,1,"VAr",32,0,
+1548,"Generator L2 VAr",0,99999999,1,"VAr",32,0,1549
+1549,"Generator L2 VAr",0,99999999,1,"VAr",32,0,
+1550,"Generator L3 VAr",0,99999999,1,"VAr",32,0,1551
+1551,"Generator L3 VAr",0,99999999,1,"VAr",32,0,
+1552,"Generator total VAr",0,99999999,1,"VAr",32,0,1553
+1553,"Generator total VAr",0,99999999,1,"VAr",32,0,
+1554,"Generator power factor L1",-1,1,0.01,,"16S",0,
+1555,"Generator power factor L2",-1,1,0.01,,"16S",0,
+1556,"Generator power factor L3",-1,1,0.01,,"16S",0,
+1557,"Generator average power factor",-1,1,0.01,,"16S",0,
+1558,"Generator percentage of full power",-999.9,999.9,0.1,"%","16S",0,
+1559,"Generator percentage of full VAr",-999.9,999.9,0.1,"%","16S",0,

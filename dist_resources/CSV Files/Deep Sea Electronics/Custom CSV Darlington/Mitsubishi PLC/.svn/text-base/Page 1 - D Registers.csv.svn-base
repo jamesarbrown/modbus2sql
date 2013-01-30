@@ -1,0 +1,36 @@
+0,"Auto Mute Time",0,65535,1,"mSec",16,1,0
+1,"Watchdog Pulse Time",0,65535,1,"mSec",16,1,0
+2,"BC1 Closed",0,65535,1,,16,1,0
+3,"BC2 Closed",0,65535,1,,16,1,0
+4,"Bus 1 On Gen",0,65535,1,,16,1,0
+5,"Bus 2 On Gen",0,65535,1,,16,1,0
+6,"Bus 3 On Gen",0,65535,1,,16,1,0
+7,"Emergency Close Time",0,65535,1,,16,1,0
+8,"Load Step Time",0,65535,1,,16,1,0
+9,"Current Bus Priority",0,65535,1,,16,1,0
+10,"Bus1 Brkr1 Priority",0,65535,1,,16,1,0
+11,"Bus1 Brkr2 Priority",0,65535,1,,16,1,0
+12,"Bus1 Brkr3 Priority",0,65535,1,,16,1,0
+13,"Bus1 Brkr4 Priority",0,65535,1,,16,1,0
+14,"Bus1 Brkr5 Priority",0,65535,1,,16,1,0
+15,"Bus1 Brkr6 Priority",0,65535,1,,16,1,0
+16,"Bus2 Brkr1 Priority",0,65535,1,,16,1,0
+17,"Bus2 Brkr2 Priority",0,65535,1,,16,1,0
+18,"Bus2 Brkr3 Priority",0,65535,1,,16,1,0
+19,"Bus2 Brkr4 Priority",0,65535,1,,16,1,0
+20,"Bus2 Brkr5 Priority",0,65535,1,,16,1,0
+21,"Bus2 Brkr6 Priority",0,65535,1,,16,1,0
+22,"Bus3 Brkr1 Priority",0,65535,1,,16,1,0
+23,"Bus3 Brkr2 Priority",0,65535,1,,16,1,0
+24,"Bus3 Brkr3 Priority",0,65535,1,,16,1,0
+25,"Bus3 Brkr4 Priority",0,65535,1,,16,1,0
+26,"Bus3 Brkr5 Priority",0,65535,1,,16,1,0
+27,"Current Breaker Counter",0,65535,1,,16,1,0
+28,"Warning Alarm",0,65535,1,,16,1,0
+29,"Trip Alarm",0,65535,1,,16,1,0
+30,"Shutdown Alarm",0,65535,1,,16,1,0
+31,"Modbus Alarm Reset Out",0,65535,1,,16,1,0
+32,"Modbus Alarm Reset In",0,65535,1,,16,1,0
+33,"Bus1 Brkr 6-1",0,65535,1,,16,1,0
+34,"Bus2 Brkr 6-1",0,65535,1,,16,1,0
+35,"Bus3 Brkr 5-1",0,65535,1,,16,1,0

@@ -1,0 +1,51 @@
+10
+
+dir
+0
+https://modbus2sql.svn.sourceforge.net/svnroot/modbus2sql/Modbus2SQL/dist_resources/CSV%20Files/Deep%20Sea%20Electronics/Custom%20CSV%20Darlington/Gen%20Controllers
+https://modbus2sql.svn.sourceforge.net/svnroot/modbus2sql
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+e51e8130-13be-4883-bfcd-5df1309f3a98
+
+Page 1 - Basic Instrumentation.csv
+file
+
+
+
+add
+
+f296e34818a2d4dfb9ee0913a294539f
+
+
+
+
+
+
+
+
+
+
+
+copied
+https://modbus2sql.svn.sourceforge.net/svnroot/modbus2sql/Modbus2SQL/dist_resources/CSV%20Files/Deep%20Sea%20Electronics/Gencom%20Page%204%20-%20Basic%20Instrumentation.csv
+67
+

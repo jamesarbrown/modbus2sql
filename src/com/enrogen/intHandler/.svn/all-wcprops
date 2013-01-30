@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/modbus2sql/!svn/ver/33/Modbus2SQL/src/com/enrogen/intHandler
+END
+int32to16binary.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/modbus2sql/!svn/ver/33/Modbus2SQL/src/com/enrogen/intHandler/int32to16binary.java
+END
+bit16IntHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/modbus2sql/!svn/ver/33/Modbus2SQL/src/com/enrogen/intHandler/bit16IntHandler.java
+END
+bit32IntHandler.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/modbus2sql/!svn/ver/33/Modbus2SQL/src/com/enrogen/intHandler/bit32IntHandler.java
+END
+int16to16binary.java
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svnroot/modbus2sql/!svn/ver/33/Modbus2SQL/src/com/enrogen/intHandler/int16to16binary.java
+END

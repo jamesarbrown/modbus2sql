@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/modbus2sql/!svn/ver/63/Modbus2SQL/src/com/enrogen/modbus2sql
+END
+AboutBoxWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/AboutBoxWindow.java
+END
+NewAlarmFlagWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmFlagWindow.java
+END
+NewControllerWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/modbus2sql/!svn/ver/23/Modbus2SQL/src/com/enrogen/modbus2sql/NewControllerWindow.java
+END
+AboutBoxWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/AboutBoxWindow.form
+END
+NewAlarmFlagWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmFlagWindow.form
+END
+NewControllerWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svnroot/modbus2sql/!svn/ver/23/Modbus2SQL/src/com/enrogen/modbus2sql/NewControllerWindow.form
+END
+MainWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/modbus2sql/!svn/ver/63/Modbus2SQL/src/com/enrogen/modbus2sql/MainWindow.java
+END
+NewSlaveWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewSlaveWindow.java
+END
+Modbus2SQLApp.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/Modbus2SQLApp.java
+END
+MainWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/modbus2sql/!svn/ver/63/Modbus2SQL/src/com/enrogen/modbus2sql/MainWindow.form
+END
+NewSlaveWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/30/Modbus2SQL/src/com/enrogen/modbus2sql/NewSlaveWindow.form
+END
+NewAlarmWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmWindow.java
+END
+NewPageWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewPageWindow.java
+END
+NewAlarmWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmWindow.form
+END
+NewPageWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svnroot/modbus2sql/!svn/ver/30/Modbus2SQL/src/com/enrogen/modbus2sql/NewPageWindow.form
+END
+modbus2sql.java
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/modbus2sql.java
+END
+NewAlarmAnnunciatorWindow.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmAnnunciatorWindow.java
+END
+NewAlarmAnnunciatorWindow.form
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/modbus2sql/!svn/ver/35/Modbus2SQL/src/com/enrogen/modbus2sql/NewAlarmAnnunciatorWindow.form
+END

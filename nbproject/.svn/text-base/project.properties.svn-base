@@ -1,0 +1,101 @@
+annotation.processing.enabled=true
+annotation.processing.enabled.in.editor=false
+annotation.processing.run.all.processors=true
+application.desc=A modbus to Mysql Server\t\t
+application.homepage=http://www.enrogen.com
+application.title=Modbus2SQL Server
+application.vendor=Enrogen Ltd
+build.classes.dir=${build.dir}/classes
+build.classes.excludes=**/*.java,**/*.form
+# This directory is removed when the project is cleaned:
+build.dir=build
+build.generated.dir=${build.dir}/generated
+build.generated.sources.dir=${build.dir}/generated-sources
+# Only compile against the classpath explicitly listed here:
+build.sysclasspath=ignore
+build.test.classes.dir=${build.dir}/test/classes
+build.test.results.dir=${build.dir}/test/results
+debug.classpath=\
+    ${run.classpath}
+debug.test.classpath=\
+    ${run.test.classpath}
+# This directory is removed when the project is cleaned:
+dist.dir=dist
+dist.jar=${dist.dir}/Modbus2SQL.jar
+dist.javadoc.dir=${dist.dir}/javadoc
+endorsed.classpath=
+excludes=
+file.reference.appframework-1.0.3.jar=libraries/appframework-1.0.3.jar
+file.reference.beansbinding-1.2.1.jar=libraries/beansbinding-1.2.1.jar
+file.reference.comm.jar=../../Documents/netbeans/libraries/comm.jar
+file.reference.jamesarbrown-NetBeansProjects=..
+file.reference.jamod-1.2-SNAPSHOT.jar=../../Documents/netbeans/libraries/jamod-1.2-SNAPSHOT.jar
+file.reference.jamod_lib.jar=libraries/jamod_lib.jar
+file.reference.Linux-x86_64-unknown-linux-gnu=systemfiles/Linux/x86_64-unknown-linux-gnu
+file.reference.mysql-connector-java-5.1.6-bin.jar=libraries/mysql-connector-java-5.1.6-bin.jar
+file.reference.NetBeansProjects-jamod_lib=../jamod_lib
+file.reference.opencsv-2.2.jar=libraries/opencsv-2.2.jar
+file.reference.RXTXcomm.jar=../../Documents/netbeans/libraries/RXTXcomm.jar
+file.reference.RXTXcomm.jar-1=../../Documents/netbeans/libraries/rxtx-2.2pre2-bins/RXTXcomm.jar
+file.reference.RXTXcomm.jar-2=libraries/RXTXcomm.jar
+file.reference.swing-worker-1.1.jar=libraries/swing-worker-1.1.jar
+file.reference.toplink-essentials-agent.jar=libraries/toplink-essentials-agent.jar
+file.reference.toplink-essentials.jar=libraries/toplink-essentials.jar
+includes=**
+jar.compress=false
+javac.classpath=\
+    ${file.reference.appframework-1.0.3.jar}:\
+    ${file.reference.beansbinding-1.2.1.jar}:\
+    ${file.reference.jamod_lib.jar}:\
+    ${file.reference.mysql-connector-java-5.1.6-bin.jar}:\
+    ${file.reference.opencsv-2.2.jar}:\
+    ${file.reference.RXTXcomm.jar-2}:\
+    ${file.reference.swing-worker-1.1.jar}:\
+    ${file.reference.toplink-essentials-agent.jar}:\
+    ${file.reference.toplink-essentials.jar}
+# Space-separated list of extra javac options
+javac.compilerargs=
+javac.deprecation=false
+javac.processorpath=\
+    ${javac.classpath}
+javac.source=1.5
+javac.target=1.5
+javac.test.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}:\
+    ${libs.junit.classpath}:\
+    ${libs.junit_4.classpath}
+javadoc.additionalparam=
+javadoc.author=false
+javadoc.encoding=${source.encoding}
+javadoc.noindex=false
+javadoc.nonavbar=false
+javadoc.notree=false
+javadoc.private=false
+javadoc.splitindex=true
+javadoc.use=true
+javadoc.version=false
+javadoc.windowtitle=
+jnlp.codebase.type=local
+jnlp.codebase.url=file:/home/jamesarbrown/NetBeansProjects/EnrogenViewServer/dist/
+jnlp.descriptor=application
+jnlp.enabled=false
+jnlp.offline-allowed=false
+jnlp.signed=false
+main.class=com.enrogen.modbus2sql.Modbus2SQLApp
+manifest.file=manifest.mf
+meta.inf.dir=${src.dir}/META-INF
+platform.active=default_platform
+run.classpath=\
+    ${javac.classpath}:\
+    ${build.classes.dir}
+# Space-separated list of JVM arguments used when running the project
+# (you may also define separate properties like run-sys-prop.name=value instead of -Dname=value
+# or test-sys-prop.name=value to set system properties for unit tests):
+run.jvmargs=
+run.test.classpath=\
+    ${javac.test.classpath}:\
+    ${build.test.classes.dir}
+source.encoding=UTF-8
+src.dir=src
+test.src.dir=test

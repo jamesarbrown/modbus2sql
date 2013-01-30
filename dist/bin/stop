@@ -1,0 +1,2 @@
+#!/bin/bash
+/opt/modbus2sql/bin/modbus2sql.sh stop

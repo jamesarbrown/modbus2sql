@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/rxtx_drivers/linux-x86-32
+END
+librxtxSerial.so
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/modbus2sql/!svn/ver/61/Modbus2SQL/dist_resources/rxtx_drivers/linux-x86-32/librxtxSerial.so
+END

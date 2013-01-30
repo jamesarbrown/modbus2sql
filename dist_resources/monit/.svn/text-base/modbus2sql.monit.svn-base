@@ -1,0 +1,6 @@
+check process modbus2sql with pidfile /opt/modbus2sql/pid/modbus2sql.pid
+   start program = "/opt/modbus2sql/bin/start"
+   stop program = "/opt/modbus2sql/bin/modbus2sql.sh stop"
+        if cpu usage > 40% for 2 cycles then restart
+        if totalmem > 300.0 MB for 5 cycles then restart
+
