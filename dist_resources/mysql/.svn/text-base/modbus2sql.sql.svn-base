@@ -1,0 +1,195 @@
+-- MySQL dump 10.13  Distrib 5.1.47, for redhat-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: modbus2sql
+-- ------------------------------------------------------
+-- Server version	5.1.47
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `controllertypes`
+--
+
+DROP TABLE IF EXISTS `controllertypes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `controllertypes` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT,
+  `controllertype` varchar(30) NOT NULL,
+  `longname` varchar(150) NOT NULL,
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `controllertypes`
+--
+
+LOCK TABLES `controllertypes` WRITE;
+/*!40000 ALTER TABLE `controllertypes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `controllertypes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `registerblocks`
+--
+
+DROP TABLE IF EXISTS `registerblocks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registerblocks` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT,
+  `controllertype` varchar(50) NOT NULL,
+  `page` int(11) DEFAULT NULL,
+  `registerstart` int(11) DEFAULT NULL,
+  `registerend` int(11) DEFAULT NULL,
+  `description` varchar(250) DEFAULT NULL,
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registerblocks`
+--
+
+LOCK TABLES `registerblocks` WRITE;
+/*!40000 ALTER TABLE `registerblocks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registerblocks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `registerdetail`
+--
+
+DROP TABLE IF EXISTS `registerdetail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `registerdetail` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT COMMENT 'AUTO CREATES',
+  `controllertype` varchar(50) NOT NULL COMMENT 'Longtext name for controller',
+  `page` int(11) DEFAULT NULL COMMENT 'Your Page Number for this Data Block',
+  `register` int(11) DEFAULT NULL COMMENT 'Modbus Register No',
+  `description` varchar(50) DEFAULT NULL COMMENT 'Long text desctription',
+  `bits` int(11) DEFAULT '16' COMMENT '16 or 32',
+  `signed` tinyint(1) DEFAULT '0' COMMENT 'Set =1 for Signed Integer',
+  `scalingfactor` double DEFAULT '1' COMMENT 'Factor to multiply answer to get real value',
+  `minimum` double DEFAULT NULL COMMENT 'Minimum Value',
+  `maximum` double DEFAULT NULL COMMENT 'Maximum Value',
+  `units` varchar(50) DEFAULT NULL COMMENT 'String representation of units eg %, deg C etc',
+  `modcode1` tinyint(1) DEFAULT NULL COMMENT 'Set=1 for Modbus READ_COILS',
+  `modcode2` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus READ_INPUT_DISCRETES',
+  `modcode3` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus READ_MULTIPLE_REGISTERS ',
+  `modcode4` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus READ_INPUT_REGISTERS',
+  `modcode5` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus WRITE_COIL',
+  `modcode6` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus WRITE_SINGLE_REGISTER',
+  `modcode15` tinyint(1) DEFAULT '0' COMMENT 'Set=1 for Modbus WRITE_MULTIPLE_COILS',
+  `modcode16` tinyint(1) DEFAULT '0' COMMENT 'Set1 for Modbus WRITE_MULTIPLE_REGISTERS',
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2652 DEFAULT CHARSET=latin1 COMMENT='This table stores the register information';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `registerdetail`
+--
+
+LOCK TABLES `registerdetail` WRITE;
+/*!40000 ALTER TABLE `registerdetail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `registerdetail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rs485settings`
+--
+
+DROP TABLE IF EXISTS `rs485settings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rs485settings` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT,
+  `serialport` varchar(50) NOT NULL,
+  `baud` int(11) NOT NULL,
+  `parity` varchar(5) NOT NULL,
+  `databits` int(11) NOT NULL,
+  `stopbits` int(11) NOT NULL,
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rs485settings`
+--
+
+LOCK TABLES `rs485settings` WRITE;
+/*!40000 ALTER TABLE `rs485settings` DISABLE KEYS */;
+INSERT INTO `rs485settings` VALUES (1,'/dev/ttyUSB1',19200,'None',8,2);
+/*!40000 ALTER TABLE `rs485settings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `siteinfo`
+--
+
+DROP TABLE IF EXISTS `siteinfo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `siteinfo` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT,
+  `sitename` varchar(50) DEFAULT NULL,
+  `comments` longtext,
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `siteinfo`
+--
+
+LOCK TABLES `siteinfo` WRITE;
+/*!40000 ALTER TABLE `siteinfo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `siteinfo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `slaves`
+--
+
+DROP TABLE IF EXISTS `slaves`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `slaves` (
+  `rowid` int(11) NOT NULL AUTO_INCREMENT,
+  `modbusslaveid` int(11) DEFAULT NULL,
+  `longname` varchar(150) DEFAULT NULL,
+  `controllertype` varchar(15) NOT NULL,
+  PRIMARY KEY (`rowid`)
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `slaves`
+--
+
+LOCK TABLES `slaves` WRITE;
+/*!40000 ALTER TABLE `slaves` DISABLE KEYS */;
+/*!40000 ALTER TABLE `slaves` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2010-06-20  8:13:04
