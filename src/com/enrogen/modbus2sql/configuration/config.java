@@ -5,6 +5,7 @@ import com.enrogen.modbus2sql.javafx.windowcontroller.mainWindowController;
 import com.enrogen.modbus2sql.logger.EgLogger;
 import com.enrogen.modbus2sql.mainWindow;
 import com.enrogen.modbus2sql.sql.sqlConnection;
+import com.enrogen.modbus2sql.threads.SQLThread;
 import com.enrogen.modbus2sql.xml.xmlio;
 import java.io.File;
 
@@ -146,14 +147,17 @@ public class config implements appInterface {
         //If ok start the sql with new settings
         if (sucess) {
             EgLogger.logInfo("Sucess : Save setting.xml");
-            sqlConnection.getInstance().StartSQL();
         } else {
             EgLogger.logSevere("FAILED : Save setting.xml");
         }
 
         //This resets the buttons to non-editable
         mwc.disableMySQLTextBoxes();
-
+        
+        //Restart the SQL server thread
+        SQLThread.getInstance().StopSQLThread();
+        SQLThread.getInstance().StartSQLThread();
+                
         return sucess;
     }
 

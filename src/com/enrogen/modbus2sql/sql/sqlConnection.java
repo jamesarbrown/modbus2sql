@@ -1,7 +1,6 @@
 package com.enrogen.modbus2sql.sql;
 
 import com.enrogen.modbus2sql.appInterface.appInterface;
-import static com.enrogen.modbus2sql.appInterface.appInterface.SQL_KEEP_ALIVE_INTERVAL;
 import com.enrogen.modbus2sql.javafx.windowcontroller.mainWindowController;
 import com.enrogen.modbus2sql.logger.EgLogger;
 import com.enrogen.modbus2sql.mainWindow;
@@ -13,10 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.util.Duration;
 
 public class sqlConnection implements appInterface {
 
@@ -33,7 +29,6 @@ public class sqlConnection implements appInterface {
     private int ResultColCount = 0;
     public List BatchSQLCommands = new LinkedList();
     public Connection connection = null;
-    private Timeline sqlWatchdogTimer = null;
 
     public sqlConnection() {
         if (Boolean.valueOf(System.getProperty("com.enrogen.modbus2sql.sql.debug"))) {
@@ -42,9 +37,6 @@ public class sqlConnection implements appInterface {
         } else {
             debug = false;
         }
-
-        //Init the watchdog timer
-        sqlWatchdogTimer();
     }
 
     //Create singleton instance
@@ -56,7 +48,7 @@ public class sqlConnection implements appInterface {
     }
 
     //Main routine
-    public void StartSQL() {
+    public void initSQL() {
         //get a reference to the mainWindow
         mainWindowController mwc = mainWindow.getInstance().getMainWindowController();
 
@@ -68,10 +60,6 @@ public class sqlConnection implements appInterface {
 
         //Open the SQL Connection
         setSQLParams(sqlServerIP, sqlUsername, sqlPassword, sqlDatabaseName);
-        EgLogger.logInfo("Starting SQL Connection");
-        restartSQLConnection();
-        EgLogger.logInfo("Starting SQL Keep Alive");
-        StartKeepAlive();
     }
 
     private void setSQLParams(String SQLServer, String SQLUser, String SQLPassword, String defaultDatabase) {
@@ -259,7 +247,7 @@ public class sqlConnection implements appInterface {
     ////////////////////////////////////////////////////////////////////////
     //Keep SQL Alive (stop SQL Timing out)
     ////////////////////////////////////////////////////////////////////////
-    private void CheckAndRestartSQLCon() {
+    public void CheckAndRestartSQLCon() {
         checkSQLConnection();
         if (!isAlive()) {
             if (debug) {
@@ -273,33 +261,6 @@ public class sqlConnection implements appInterface {
                     EgLogger.logSevere("Failed");
                 }
             }
-        }
-    }
-
-    private void StartKeepAlive() {
-        if (debug) {
-            EgLogger.logInfo("Starting keepalive Thread: " + SQL_KEEP_ALIVE_INTERVAL + "msec");
-        }
-        sqlWatchdogTimer.play();
-    }
-
-    private void StopKeepAlive() {
-        if (debug) {
-            EgLogger.logInfo("Stopping keepalive Thread");
-        }
-        sqlWatchdogTimer.stop();
-    }
-
-    //The timer to keep alive + update isAlive for lamps
-    private void sqlWatchdogTimer() {
-        if (sqlWatchdogTimer == null) {
-            //Create a thread to flash the lamps
-            EgLogger.logInfo("Starting sql Watchdog Ticker at : " + SQL_KEEP_ALIVE_INTERVAL + "mSec");
-
-            sqlWatchdogTimer = new Timeline(new KeyFrame(
-                    Duration.millis(SQL_KEEP_ALIVE_INTERVAL),
-                    ae -> CheckAndRestartSQLCon()));
-            sqlWatchdogTimer.setCycleCount(Animation.INDEFINITE);
         }
     }
 
