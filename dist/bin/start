@@ -1,7 +1,0 @@
-#!/bin/bash
-export JAVA_HOME=/opt/jdk1.6.0/bin
-export PATH=$PATH:/opt/jdk1.6.0/bin:/usr/local/bin:/usr/bin:/bin
-export DISPLAY=0:0
-sleep 10s
-echo $JAVA_HOME
-/opt/modbus2sql/bin/modbus2sql.sh start

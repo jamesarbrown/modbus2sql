@@ -1,8 +1,0 @@
-1810,"Mains positive KW hours ",0,4290000000,0.1,"KW hour",32,1,1811
-1811,"Mains positive KW hours ",0,4290000000,0.1,"KW hour",32,0,
-1812,"Mains negative KW hours",0,4290000000,0.1,"KW hour",32,1,1813
-1813,"Mains negative KW hours",0,4290000000,0.1,"KW hour",32,0,
-1814,"Mains KVA hours",0,4290000000,0.1,"KVA hour",32,1,1815
-1815,"Mains KVA hours",0,4290000000,0.1,"KVA hour",32,0,
-1816,"Mains KVAr hours",0,4290000000,0.1,"KVAr hour",32,1,1817
-1817,"Mains KVAr hours",0,4290000000,0.1,"KVAr hour",32,0,
