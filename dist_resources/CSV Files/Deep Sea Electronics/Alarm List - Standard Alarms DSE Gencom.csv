@@ -1,115 +1,115 @@
-"Emergency Stop",39425,16,4,0,0,0,1,2,3,4,15
-"Low Oil Pressure",39425,12,4,0,0,0,1,2,3,4,15
-"High Coolant Temperature",39425,8,4,0,0,0,1,2,3,4,15
-"Low Coolant Temperature",39425,4,4,0,0,0,1,2,3,4,15
-"Under Speed",39426,16,4,0,0,0,1,2,3,4,15
-"Over Speed",39426,12,4,0,0,0,1,2,3,4,15
-"Generator Under Hz",39426,8,4,0,0,0,1,2,3,4,15
-"Generator Over Hz",39426,4,4,0,0,0,1,2,3,4,15
-"Generator Low Voltage",39427,16,4,0,0,0,1,2,3,4,15
-"Generator High Voltage",39427,12,4,0,0,0,1,2,3,4,15
-"Battery Low Voltage",39427,8,4,0,0,0,1,2,3,4,15
-"Battery High Voltage",39427,4,4,0,0,0,1,2,3,4,15
-"Charge Alternator Failure",39428,16,4,0,0,0,1,2,3,4,15
-"Fail to Start",39428,12,4,0,0,0,1,2,3,4,15
-"Fail to Stop",39428,8,4,0,0,0,1,2,3,4,15
-"Generator Fail to Close",39428,4,4,0,0,0,1,2,3,4,15
-"Mains Fail to Close",39429,16,4,0,0,0,1,2,3,4,15
-"Oil Pressure Sender Fault",39429,12,4,0,0,0,1,2,3,4,15
-"Loss Of MPU",39429,8,4,0,0,0,1,2,3,4,15
-"MPU Open Circuit",39429,4,4,0,0,0,1,2,3,4,15
-"Generator Over Current",39430,16,4,0,0,0,1,2,3,4,15
-"Controller Calibration Lost",39430,12,4,0,0,0,1,2,3,4,15
-"Low Fuel Level",39430,8,4,0,0,0,1,2,3,4,15
-"CAN ECU Warning",39430,4,4,0,0,0,1,2,3,4,15
-"CAN ECU Shutdown",39431,16,4,0,0,0,1,2,3,4,15
-"CAN ECU Data Fail",39431,12,4,0,0,0,1,2,3,4,15
-"Low Oil Level Switch",39431,8,4,0,0,0,1,2,3,4,15
-"High Temperature Switch",39431,4,4,0,0,0,1,2,3,4,15
-"Low Fuel Level",39432,16,4,0,0,0,1,2,3,4,15
-"Expansion Unit Watchdog Alarm",39432,12,4,0,0,0,1,2,3,4,15
-"KW Overload Alarm",39432,8,4,0,0,0,1,2,3,4,15
-"Neg Phase Sequence",39433,4,4,0,0,0,1,2,3,4,15
-"Earth Fault Trip Alarm",39433,16,4,0,0,0,1,2,3,4,15
-"Generator Phase Rotation Alarm",39433,12,4,0,0,0,1,2,3,4,15
-"Auto Voltage Sense Fail",39433,8,4,0,0,0,1,2,3,4,15
-"Maintenance Alarm",39433,4,4,0,0,0,1,2,3,4,15
-" Loading frequency alarm",39434,16,4,0,0,0,1,2,3,4,15
-"Loading voltage alarm",39434,12,4,0,0,0,1,2,3,4,15
-"Fuel usage running",39434,8,4,0,0,0,1,2,3,4,15
-"Fuel usage stopped",39434,4,4,0,0,0,1,2,3,4,15
-"Protections disabled",39435,16,4,0,0,0,1,2,3,4,15
-"Protections blocked",39435,12,4,0,0,0,1,2,3,4,15
-"Generator breaker failed to open",39435,8,4,0,0,0,1,2,3,4,15
-"Mains breaker failed to open",39435,4,4,0,0,0,1,2,3,4,15
-"Bus breaker failed to close",39436,16,4,0,0,0,1,2,3,4,15
-"Bus breaker failed to open",39436,12,4,0,0,0,1,2,3,4,15
-"Generator reverse power alarm",39436,8,4,0,0,0,1,2,3,4,15
-"Short circuit alarm",39436,4,4,0,0,0,1,2,3,4,15
-"Air flap closed alarm",39437,16,4,0,0,0,1,2,3,4,15
-"Failure to sync",39437,12,4,0,0,0,1,2,3,4,15
-"Bus live",39437,8,4,0,0,0,1,2,3,4,15
-"Bus not live",39437,4,4,0,0,0,1,2,3,4,15
-"Bus phase rotation",39438,16,4,0,0,0,1,2,3,4,15
-"Priority selection error",39438,12,4,0,0,0,1,2,3,4,15
-"MSC data error",39438,8,4,0,0,0,1,2,3,4,15
-"MSC ID error",39438,4,4,0,0,0,1,2,3,4,15
-"Bus low voltage",39439,16,4,0,0,0,1,2,3,4,15
-"Bus high voltage",39439,12,4,0,0,0,1,2,3,4,15
-"Bus low frequency",39439,8,4,0,0,0,1,2,3,4,15
-"Bus high frequency",39439,4,4,0,0,0,1,2,3,4,15
-"MSC failure",39440,16,4,0,0,0,1,2,3,4,15
-"MSC too few sets",39440,12,4,0,0,0,1,2,3,4,15
-"MSC alarms inhibited",39440,8,4,0,0,0,1,2,3,4,15
-"MSC old version units on the bus",39440,4,4,0,0,0,1,2,3,4,15
-"Mains reverse power alarm/mains export alarm",39441,16,4,0,0,0,1,2,3,4,15
-"Minimum sets not reached",39441,12,4,0,0,0,1,2,3,4,15
-"Insufficient capacity",39441,8,4,0,0,0,1,2,3,4,15
-"Out of sync",39441,4,4,0,0,0,1,2,3,4,15
-"Alternative aux mains fail",39442,16,4,0,0,0,1,2,3,4,15
-"Loss of excitation",39442,12,4,0,0,0,1,2,3,4,15
-"Mains ROCOF",39442,8,4,0,0,0,1,2,3,4,15
-"Mains vector shift",39442,4,4,0,0,0,1,2,3,4,15
-" Mains decoupling low frequency",39443,16,4,0,0,0,1,2,3,4,15
-"Mains decoupling high frequency",39443,12,4,0,0,0,1,2,3,4,15
-"Mains decoupling low voltage",39443,8,4,0,0,0,1,2,3,4,15
-"Mains decoupling high voltage",39443,4,4,0,0,0,1,2,3,4,15
-"Mains decoupling combined alarm",39444,16,4,0,0,0,1,2,3,4,15
-"Charge air temperature",39444,12,4,0,0,0,1,2,3,4,15
-"Mains phase rotation alarm identifier",39444,8,4,0,0,0,1,2,3,4,15
-"AVR Max Trim Limit alarm",39444,4,4,0,0,0,1,2,3,4,15
-"High coolant temperature electrical trip alarm",39445,16,4,0,0,0,1,2,3,4,15
-"Temperature sender open circuit alarm",39445,12,4,0,0,0,1,2,3,4,15
-"Out of sync Bus",39445,8,4,0,0,0,1,2,3,4,15
-"Out of sync Mains",39445,4,4,0,0,0,1,2,3,4,15
-"22 Bus 1 live",39446,16,4,0,0,0,1,2,3,4,15
-"Bus 1 phase rotation",39446,12,4,0,0,0,1,2,3,4,15
-"Bus 2 live",39446,8,4,0,0,0,1,2,3,4,15
-"Bus 2 phase rotation",39446,4,4,0,0,0,1,2,3,4,15
-"Digital Input 1",39169,16,4,51200,31,0,1,2,3,4,15
-"Digital Input 2",39169,12,4,51232,31,0,1,2,3,4,15
-"Digital Input 3",39169,8,4,51264,31,0,1,2,3,4,15
-"Digital Input 4",39169,4,4,51296,31,0,1,2,3,4,15
-"Digital Input 5",39170,16,4,51328,31,0,1,2,3,4,15
-"Digital Input 6",39170,12,4,51360,31,0,1,2,3,4,15
-"Digital Input 7",39170,8,4,51392,31,0,1,2,3,4,15
-"Digital Input 8",39170,4,4,51424,31,0,1,2,3,4,15
-"Digital Input 9",39171,16,4,51456,31,0,1,2,3,4,15
-"Digital Input 10",39171,12,4,51488,31,0,1,2,3,4,15
-"Digital Input 11",39171,8,4,51520,31,0,1,2,3,4,15
-"Digital Input 12",39171,4,4,51552,31,0,1,2,3,4,15
-"Digital Input 13",39172,16,4,51584,31,0,1,2,3,4,15
-"Digital Input 14",39172,12,4,51616,31,0,1,2,3,4,15
-"Digital Input 15",39172,8,4,51648,31,0,1,2,3,4,15
-"Digital Input 16",39172,4,4,51680,31,0,1,2,3,4,15
-"PLC Alarm 1",39476,12,4,0,31,0,1,2,3,4,15
-"PLC Alarm 2",39476,8,4,0,31,0,1,2,3,4,15
-"PLC Alarm 3",39476,4,4,0,31,0,1,2,3,4,15
-"PLC Alarm 4",39477,16,4,0,31,0,1,2,3,4,15
-"PLC Alarm 5",39477,12,4,0,31,0,1,2,3,4,15
-"PLC Alarm 6",39477,8,4,0,31,0,1,2,3,4,15
-"PLC Alarm 7",39477,4,4,0,31,0,1,2,3,4,15
-"PLC Alarm 8",39478,16,4,0,31,0,1,2,3,4,15
-"PLC Alarm 9",39478,12,4,0,31,0,1,2,3,4,15
-"PLC Alarm 10",39478,8,4,0,31,0,1,2,3,4,15
-"PLC Alarm 11",39478,4,4,0,31,0,1,2,3,4,15
+Emergency Stop,39425,12,4,1,2,3,4,15
+Low Oil Pressure,39425,8,4,1,2,3,4,15
+High Coolant Temperature,39425,4,4,1,2,3,4,15
+Low Coolant Temperature,39425,0,4,1,2,3,4,15
+Under Speed,39426,12,4,1,2,3,4,15
+Over Speed,39426,8,4,1,2,3,4,15
+Generator Under Hz,39426,4,4,1,2,3,4,15
+Generator Over Hz,39426,0,4,1,2,3,4,15
+Generator Low Voltage,39427,12,4,1,2,3,4,15
+Generator High Voltage,39427,8,4,1,2,3,4,15
+Battery Low Voltage,39427,4,4,1,2,3,4,15
+Battery High Voltage,39427,0,4,1,2,3,4,15
+Charge Alternator Failure,39428,12,4,1,2,3,4,15
+Fail to Start,39428,8,4,1,2,3,4,15
+Fail to Stop,39428,4,4,1,2,3,4,15
+Generator Fail to Close,39428,0,4,1,2,3,4,15
+Mains Fail to Close,39429,12,4,1,2,3,4,15
+Oil Pressure Sender Fault,39429,8,4,1,2,3,4,15
+Loss Of MPU,39429,4,4,1,2,3,4,15
+MPU Open Circuit,39429,0,4,1,2,3,4,15
+Generator Over Current,39430,12,4,1,2,3,4,15
+Controller Calibration Lost,39430,8,4,1,2,3,4,15
+Low Fuel Level,39430,4,4,1,2,3,4,15
+CAN ECU Warning,39430,0,4,1,2,3,4,15
+CAN ECU Shutdown,39431,12,4,1,2,3,4,15
+CAN ECU Data Fail,39431,8,4,1,2,3,4,15
+Low Oil Level Switch,39431,4,4,1,2,3,4,15
+High Temperature Switch,39431,0,4,1,2,3,4,15
+Low Fuel Level,39432,12,4,1,2,3,4,15
+Expansion Unit Watchdog Alarm,39432,8,4,1,2,3,4,15
+KW Overload Alarm,39432,4,4,1,2,3,4,15
+Neg Phase Sequence,39433,0,4,1,2,3,4,15
+Earth Fault Trip Alarm,39433,12,4,1,2,3,4,15
+Generator Phase Rotation Alarm,39433,8,4,1,2,3,4,15
+Auto Voltage Sense Fail,39433,4,4,1,2,3,4,15
+Maintenance Alarm,39433,0,4,1,2,3,4,15
+ Loading frequency alarm,39434,12,4,1,2,3,4,15
+Loading voltage alarm,39434,8,4,1,2,3,4,15
+Fuel usage running,39434,4,4,1,2,3,4,15
+Fuel usage stopped,39434,0,4,1,2,3,4,15
+Protections disabled,39435,12,4,1,2,3,4,15
+Protections blocked,39435,8,4,1,2,3,4,15
+Generator breaker failed to open,39435,4,4,1,2,3,4,15
+Mains breaker failed to open,39435,0,4,1,2,3,4,15
+Bus breaker failed to close,39436,12,4,1,2,3,4,15
+Bus breaker failed to open,39436,8,4,1,2,3,4,15
+Generator reverse power alarm,39436,4,4,1,2,3,4,15
+Short circuit alarm,39436,0,4,1,2,3,4,15
+Air flap closed alarm,39437,12,4,1,2,3,4,15
+Failure to sync,39437,8,4,1,2,3,4,15
+Bus live,39437,4,4,1,2,3,4,15
+Bus not live,39437,0,4,1,2,3,4,15
+Bus phase rotation,39438,12,4,1,2,3,4,15
+Priority selection error,39438,8,4,1,2,3,4,15
+MSC data error,39438,4,4,1,2,3,4,15
+MSC ID error,39438,0,4,1,2,3,4,15
+Bus low voltage,39439,12,4,1,2,3,4,15
+Bus high voltage,39439,8,4,1,2,3,4,15
+Bus low frequency,39439,4,4,1,2,3,4,15
+Bus high frequency,39439,0,4,1,2,3,4,15
+MSC failure,39440,12,4,1,2,3,4,15
+MSC too few sets,39440,8,4,1,2,3,4,15
+MSC alarms inhibited,39440,4,4,1,2,3,4,15
+MSC old version units on the bus,39440,0,4,1,2,3,4,15
+Mains reverse power alarm/mains export alarm,39441,12,4,1,2,3,4,15
+Minimum sets not reached,39441,8,4,1,2,3,4,15
+Insufficient capacity,39441,4,4,1,2,3,4,15
+Out of sync,39441,0,4,1,2,3,4,15
+Alternative aux mains fail,39442,12,4,1,2,3,4,15
+Loss of excitation,39442,8,4,1,2,3,4,15
+Mains ROCOF,39442,4,4,1,2,3,4,15
+Mains vector shift,39442,0,4,1,2,3,4,15
+ Mains decoupling low frequency,39443,12,4,1,2,3,4,15
+Mains decoupling high frequency,39443,8,4,1,2,3,4,15
+Mains decoupling low voltage,39443,4,4,1,2,3,4,15
+Mains decoupling high voltage,39443,0,4,1,2,3,4,15
+Mains decoupling combined alarm,39444,12,4,1,2,3,4,15
+Charge air temperature,39444,8,4,1,2,3,4,15
+Mains phase rotation alarm identifier,39444,4,4,1,2,3,4,15
+AVR Max Trim Limit alarm,39444,0,4,1,2,3,4,15
+High coolant temperature electrical trip alarm,39445,12,4,1,2,3,4,15
+Temperature sender open circuit alarm,39445,8,4,1,2,3,4,15
+Out of sync Bus,39445,4,4,1,2,3,4,15
+Out of sync Mains,39445,0,4,1,2,3,4,15
+22 Bus 1 live,39446,12,4,1,2,3,4,15
+Bus 1 phase rotation,39446,8,4,1,2,3,4,15
+Bus 2 live,39446,4,4,1,2,3,4,15
+Bus 2 phase rotation,39446,0,4,1,2,3,4,15
+Digital Input 1,39169,12,4,1,2,3,4,15
+Digital Input 2,39169,8,4,1,2,3,4,15
+Digital Input 3,39169,4,4,1,2,3,4,15
+Digital Input 4,39169,0,4,1,2,3,4,15
+Digital Input 5,39170,12,4,1,2,3,4,15
+Digital Input 6,39170,8,4,1,2,3,4,15
+Digital Input 7,39170,4,4,1,2,3,4,15
+Digital Input 8,39170,0,4,1,2,3,4,15
+Digital Input 9,39171,12,4,1,2,3,4,15
+Digital Input 10,39171,8,4,1,2,3,4,15
+Digital Input 11,39171,4,4,1,2,3,4,15
+Digital Input 12,39171,0,4,1,2,3,4,15
+Digital Input 13,39172,12,4,1,2,3,4,15
+Digital Input 14,39172,8,4,1,2,3,4,15
+Digital Input 15,39172,4,4,1,2,3,4,15
+Digital Input 16,39172,0,4,1,2,3,4,15
+PLC Alarm 1,39476,8,4,1,2,3,4,15
+PLC Alarm 2,39476,4,4,1,2,3,4,15
+PLC Alarm 3,39476,0,4,1,2,3,4,15
+PLC Alarm 4,39477,12,4,1,2,3,4,15
+PLC Alarm 5,39477,8,4,1,2,3,4,15
+PLC Alarm 6,39477,4,4,1,2,3,4,15
+PLC Alarm 7,39477,0,4,1,2,3,4,15
+PLC Alarm 8,39478,12,4,1,2,3,4,15
+PLC Alarm 9,39478,8,4,1,2,3,4,15
+PLC Alarm 10,39478,4,4,1,2,3,4,15
+PLC Alarm 11,39478,0,4,1,2,3,4,15
