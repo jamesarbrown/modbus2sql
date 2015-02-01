@@ -338,7 +338,7 @@
                                                          <children>
                                                             <VBox layoutX="164.0" layoutY="34.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                <children>
-                                                                  <TableView prefHeight="200.0" prefWidth="200.0">
+                                                                  <TableView fx:id="AlarmDescriptorTable" prefHeight="200.0" prefWidth="200.0">
                                                                     <columns>
                                                                       <TableColumn prefWidth="75.0" text="ID" />
                                                                       <TableColumn prefWidth="75.0" text="Device" />
@@ -346,7 +346,6 @@
                                                                         <TableColumn prefWidth="75.0" text="Register" />
                                                                         <TableColumn prefWidth="75.0" text="Bit Start" />
                                                                         <TableColumn prefWidth="75.0" text="Bit Qty" />
-                                                                        <TableColumn prefWidth="75.0" text="Val Dis" />
                                                                         <TableColumn prefWidth="75.0" text="Val Warn" />
                                                                         <TableColumn prefWidth="75.0" text="Val Shutdown" />
                                                                         <TableColumn prefWidth="75.0" text="Val Trip" />
@@ -356,7 +355,8 @@
                                                                   <HBox prefWidth="200.0" spacing="10.0">
                                                                      <children>
                                                                         <Button fx:id="AlarmDescriptorAddButton" mnemonicParsing="false" onAction="#AlarmDescriptorAddButton_click" text="Add CSV" />
-                                                                        <Button mnemonicParsing="false" text="Delete" />
+                                                                        <Button fx:id="AlarmDescriptorDeleteButton" mnemonicParsing="false" onAction="#AlarmDescriptorDeleteButton_click" text="Delete" />
+                                                                        <Button fx:id="AlarmDescriptorDeleteAllButton" mnemonicParsing="false" onAction="#AlarmDescriptorDeleteAllButton_click" text="Delete All By Device Type" />
                                                                      </children>
                                                                   </HBox>
                                                                </children>

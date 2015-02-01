@@ -59,17 +59,14 @@ public class AlarmDescriptorSQLController {
 
         sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
     }
-
-    public void update(AlarmDescriptor ad) {
-//        String sqlcmd = "UPDATE alarmflags SET warningregister=" + af.getWarningRegister() + ", "
-//                + "warningbit=" + af.getWarningBit() + ", "
-//                + "shutdownregister=" + af.getShutdownRegister() + ", "
-//                + "shutdownbit=" + af.getShutdownBit() + ", "
-//                + "tripregister=" + af.getTripRegister() + ", "
-//                + "tripbit=" + af.getTripBit() + ", "
-//                + "controllertype='" + af.getDeviceType() + "' "
-//                + "WHERE rowid='" + af.getUniqueID() + "';";
-
-//        sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
+    
+    public void delete(AlarmDescriptor ad) {
+        String sqlcmd = "DELETE FROM alarmtypes WHERE rowid=" + ad.getUniqueID() + ";";
+        sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
+    }
+    
+    public void deleteAll(String DeviceType) {
+        String sqlcmd = "DELETE FROM alarmtypes WHERE controllertype='" + DeviceType + "';";
+        sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
     }
 }

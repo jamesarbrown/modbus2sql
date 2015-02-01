@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="160.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.enrogen.modbus2sql.javafx.windowcontroller.AddAlarmDescriptorWindowController">
+<AnchorPane id="AnchorPane" prefHeight="160.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.enrogen.modbus2sql.javafx.windowcontroller.AddAlarmDescriptorWindowController">
    <children>
       <VBox layoutX="290.0" layoutY="91.0" prefHeight="400.0" prefWidth="472.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -25,19 +24,19 @@
                <children>
                   <Label text="Device Type" />
                   <Label text="CSV File" GridPane.rowIndex="1" />
-                  <ComboBox prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" />
+                  <ComboBox fx:id="DeviceTypeComboBox" prefHeight="25.0" prefWidth="240.0" GridPane.columnIndex="1" />
                   <HBox prefHeight="30.0" prefWidth="278.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <TextField prefHeight="25.0" prefWidth="148.0" />
-                        <Button mnemonicParsing="false" text="Button" />
+                        <TextField fx:id="TextFieldFilePath" prefHeight="25.0" prefWidth="148.0" />
+                        <Button fx:id="ButtonFileChooser" mnemonicParsing="false" onAction="#ButtonFileChooser_click" text="Browse" />
                      </children>
                   </HBox>
                </children>
             </GridPane>
             <HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="5.0">
                <children>
-                  <Button mnemonicParsing="false" text="Insert" />
-                  <Button mnemonicParsing="false" text="Cancel" />
+                  <Button fx:id="ButtonInsert" mnemonicParsing="false" onAction="#ButtonInsert_click" text="Insert" />
+                  <Button fx:id="ButtonCancel" mnemonicParsing="false" onAction="#ButtonCancel_click" text="Cancel" />
                </children>
             </HBox>
          </children>

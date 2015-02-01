@@ -8,9 +8,11 @@ import com.enrogen.modbus2sql.configuration.config;
 import com.enrogen.modbus2sql.components.LogTextArea;
 import com.enrogen.modbus2sql.components.NumberSpinner;
 import com.enrogen.modbus2sql.javafx.InfoPopup;
+import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerAlarmDescriptor;
 import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerAlarmFlag;
 import com.enrogen.modbus2sql.logger.EgLogger;
 import com.enrogen.modbus2sql.rs485.Port;
+import com.enrogen.modbus2sql.sql.AlarmDescriptor;
 import com.enrogen.modbus2sql.sql.AlarmFlag;
 import com.enrogen.modbus2sql.sql.DeviceType;
 import com.enrogen.modbus2sql.sql.RS485Detail;
@@ -631,20 +633,19 @@ public class mainWindowController implements Initializable, appInterface {
     ////////////////////////////////////////////////////////////////////////////
     //Alarm Flag Tab
     ////////////////////////////////////////////////////////////////////////////
-
     //Components
     @FXML
     private TableView AlarmFlagTable;
-    
+
     @FXML
     private Button AlarmFlagAddButton;
-    
+
     @FXML
     private Button AlarmFlagEditButton;
-    
+
     @FXML
     private Button AlarmFlagDeleteButton;
-    
+
     //Methods
     public TableView<AlarmFlag> getAlarmFlagTable() {
         return AlarmFlagTable;
@@ -670,16 +671,16 @@ public class mainWindowController implements Initializable, appInterface {
 
             dialog.show();
         } catch (Exception e) {
-           EgLogger.logSevere("Unable to open Add Slave Window");
-           e.printStackTrace();
-         }
+            EgLogger.logSevere("Unable to open Add Slave Window");
+            e.printStackTrace();
+        }
     }
-    
+
     @FXML
     private void AlarmFlagEditButton_click(ActionEvent ae) {
         try {
             AlarmFlag af = (AlarmFlag) AlarmFlagTable.getSelectionModel().getSelectedItem();
-            
+
             String mainWindowResource = JAVAFX_FXML_LOCATION + "AddAlarmFlagWindow.fxml";
 
             //Show the window
@@ -709,11 +710,11 @@ public class mainWindowController implements Initializable, appInterface {
 
             dialog.show();
         } catch (Exception e) {
-           EgLogger.logSevere("Unable to open Add Slave Window");
-           e.printStackTrace();
-         }
+            EgLogger.logSevere("Unable to open Add Slave Window");
+            e.printStackTrace();
+        }
     }
-    
+
     @FXML
     private void AlarmFlagDeleteButton_click(ActionEvent ae) {
         TableControllerAlarmFlag.getInstance().deleteAlarmFlag();
@@ -722,18 +723,27 @@ public class mainWindowController implements Initializable, appInterface {
     ////////////////////////////////////////////////////////////////////////////
     //Alarm Descriptor Tab
     ////////////////////////////////////////////////////////////////////////////
-
     //Components
     @FXML
+    private TableView AlarmDescriptorTable;
+
+    @FXML
     private Button AlarmDescriptorAddButton;
-    
-   
+
+    @FXML
+    private Button AlarmDescriptorDeleteButton;
+
+    @FXML
+    private Button AlarmDescriptorDeleteAllButton;
+
     //Methods
+    public TableView<AlarmDescriptor> getAlarmDescriptorTable() {
+        return AlarmDescriptorTable;
+    }
+
     @FXML
     private void AlarmDescriptorAddButton_click(ActionEvent ae) {
         try {
-            //AlarmFlag af = (AlarmFlag) AlarmFlagTable.getSelectionModel().getSelectedItem();
-    
             String mainWindowResource = JAVAFX_FXML_LOCATION + "AddAlarmDescriptorWindow.fxml";
 
             //Show the window
@@ -749,26 +759,22 @@ public class mainWindowController implements Initializable, appInterface {
             dialog.initModality(Modality.APPLICATION_MODAL);
             dialog.setTitle("Add Alarm Descriptions CSV File");
 
-            //Set the parameters
-            //wc.setEditMode(true);
-
-            //We set the rowid, so we have reference to the edited device
-            //wc.setRowID(af.getUniqueID());
-           // wc.setShutdownRegister(af.getShutdownRegister());
-           // wc.setShutdownBit(af.getShutdownBit());
-           // wc.setWarningRegister(af.getWarningRegister());
-           // wc.setWarningBit(af.getWarningBit());
-           // wc.setTrippedRegister(af.getTripRegister());
-           // wc.setTrippedBit(af.getTripBit());
-
             dialog.show();
         } catch (Exception e) {
-           EgLogger.logSevere("Unable to open Add Slave Window");
-           e.printStackTrace();
-         }        
+            EgLogger.logSevere("Unable to open Add Slave Window");
+            e.printStackTrace();
+        }
     }
-    
-    
+
+    @FXML
+    public void AlarmDescriptorDeleteButton_click() {
+        TableControllerAlarmDescriptor.getInstance().deleteAlarmDescriptors();
+    }
+
+    @FXML
+    public void AlarmDescriptorDeleteAllButton_click() {
+        TableControllerAlarmDescriptor.getInstance().deleteAllAlarmDescriptors();
+    }
 
     ////////////////////////////////////////////////////////////////////////////
     //Log Tab
