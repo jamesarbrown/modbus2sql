@@ -64,84 +64,76 @@ public class SlaveDetailSQLController {
         } else {
             //Ok so create a table for the slave based on controllertype
             String tablename = "slave" + String.valueOf(ModbusSlaveID);
+
+            //Now we can create it
             String sqlCreateTable = " CREATE TABLE `" + tablename + "` ("
                     + "`rowid` int(11) NOT NULL AUTO_INCREMENT,"
                     + "`register` int(11) DEFAULT NULL,"
                     + "`description` varchar(50) DEFAULT NULL,"
-                    + "`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP," + //DO NOT AUTO UPDATE TIMESTAMP!!
-                    "`livedata` tinyint(1) NOT NULL DEFAULT '0',"
-                    + "`16binary` varchar(16) NOT NULL DEFAULT '0000000000000000',"
-                    + "`16hex` char(10) NOT NULL DEFAULT '0x0000',"
-                    + "`16integer` bigint(20) NOT NULL DEFAULT '0',"
-                    + "`32binary` varchar(32) DEFAULT NULL,"
-                    + "`32hex` char(20) DEFAULT NULL,"
-                    + "`32integer` bigint(20) DEFAULT NULL,"
-                    + "`lowbyteregister` int(11) DEFAULT '0',"
+                    + "`timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP," //DO NOT AUTO UPDATE TIMESTAMP!!
+                    + "`livedata` tinyint(1) NOT NULL DEFAULT '0',"
+                    + "`value` int(11) NOT NULL DEFAULT '0',"
+                    + "`registervalve` int(4) UNSIGNED NOT NULL DEFAULT '0',"
+                    + "`binaryvalue` varchar(32) DEFAULT ''," 
                     + "`is32bit` tinyint(1) NOT NULL DEFAULT '0',"
                     + "`isSigned` tinyint(1) NOT NULL DEFAULT '0',"
-                    + "`SignedResult` int(11) NOT NULL DEFAULT '0',"
+                    + "`lowbyteregister` int(11) DEFAULT '0',"
+                    + "`scalingfactor` double DEFAULT '1',"
+                    + "`minimum` double DEFAULT NULL,"
+                    + "`maximum` double DEFAULT NULL,"
+                    + "`units` varchar(50) DEFAULT NULL,"
                     + "`changeflag` tinyint(4) NOT NULL DEFAULT '0',"
                     + "`writedata` int(11) NOT NULL DEFAULT '0',"
                     + "PRIMARY KEY (`rowid`)"
                     + ") ENGINE=MyISAM DEFAULT CHARSET=latin1;";
+            sqlConnection.getInstance().SQLUpdateCommand(sqlCreateTable);
 
-            //Fill table with the relevant registers
-            String sqlRegisterBlocks = "SELECT registerstart, registerend FROM registerblocks "
-                    + "WHERE controllertype='" + DeviceType + "';";
-
-            //Update entry into slaves table
+            //Update entry into master slaves table
             String sqlSlaveEntry = "INSERT INTO slaves SET modbusslaveid=" + ModbusSlaveID
                     + ", controllertype='" + DeviceType + "', "
                     + "longname='" + Description + "';";
-
-            sqlConnection.getInstance().SQLUpdateCommand(sqlCreateTable);
             sqlConnection.getInstance().SQLUpdateCommand(sqlSlaveEntry);
 
-            //Insert registers
-            resultList = sqlConnection.getInstance().SQLSelectCommand(sqlRegisterBlocks);
-            for (int z = 0; z < resultList.size(); z++) {
-                List resultValues = (List) resultList.get(z);
-                Integer registerstart = (Integer) resultValues.get(0);
-                Integer registerend = (Integer) resultValues.get(1);
-                int start = registerstart.intValue();
-                int end = registerend.intValue();
+            //Get the register blocks by slave ID
+            ObservableList<RegisterBlock> registerBlockList
+                    = new RegisterBlockSQLController().getRegisterBlocksBySlaveID(slave);
 
-                for (int register = start; register <= end; register++) {
+            //Itterate
+            for (int z = 0; z < registerBlockList.size(); z++) {
+                RegisterBlock registerBlock = registerBlockList.get(z);
 
-                    //Get the long description
-                    String sqllongdesc = "SELECT description, bits, signed, lowbyteregister FROM registerdetail WHERE "
-                            + "controllertype='" + DeviceType + "' AND register="
-                            + String.valueOf(register) + ";";
+                for (int register = registerBlock.getRegisterStart(); register <= registerBlock.getRegisterEnd(); register++) {
+                    //Get the Register Detail by Register No
+                    ObservableList<RegisterDetail> RegisterDetailList
+                            = new RegisterDetailSQLController().getRegisterDetail(slave, register);
+                    RegisterDetail registerdetail = RegisterDetailList.get(0);
 
-                    List resultList2 = sqlConnection.getInstance().SQLSelectCommand(sqllongdesc);
-
-                    try {
-                        List resultValues2 = (List) resultList2.get(0);
-                        String longdesc = (String) resultValues2.get(0);
-                        Integer bits = (Integer) resultValues2.get(1);
-                        Integer is32bit = 0;
-                        if (bits == 32) {
-                            is32bit = 1;
-                        }
-                        Boolean boolSigned = (Boolean) resultValues2.get(2);
-                        Integer signed = 0;
-                        if (boolSigned) {
-                            signed = 1;
-                        }
-                        Integer lowbyteregister = (Integer) resultValues2.get(3);
-
-                        String sqlInsertRegister = "INSERT INTO " + tablename + " SET "
-                                + "register=" + register + ", description='" + longdesc + "', "
-                                + "is32bit=" + is32bit + ", isSigned=" + signed + ", lowbyteregister=" + lowbyteregister + ";";
-
-                        sqlConnection.getInstance().SQLUpdateCommand(sqlInsertRegister);
-                    } catch (Exception e) {
-                        EgLogger.logSevere("There was something wrong with the CSV Files");
-                        EgLogger.logSevere(sqllongdesc);
+                    //Is it 32 bit?
+                    Integer is32bit = 0;
+                    if (registerdetail.getBits() == 32) {
+                        is32bit = 1;
                     }
+
+                    String sqlInsertRegister = "INSERT INTO " + tablename + " SET "
+                            + "register=" + register + ", "
+                            + "description='" + registerdetail.getDescription() + "', "
+                            + "is32bit=" + is32bit + ", "
+                            + "isSigned=" + tinyIntBoolean(registerdetail.isSigned()) + ","
+                            + "lowbyteregister=" + registerdetail.getLowByteRegister() + ";";
+
+                    sqlConnection.getInstance().SQLUpdateCommand(sqlInsertRegister);
                 }
             }
             return true;
+        }
+    }
+    
+    //Convienence to turn boolean into an integer for storage in Mysql tinyint column
+    public int tinyIntBoolean(Boolean value) {
+        if (value) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 
