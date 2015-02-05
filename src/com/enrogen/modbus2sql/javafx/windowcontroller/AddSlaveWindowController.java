@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -51,6 +52,12 @@ public class AddSlaveWindowController implements Initializable {
 
     @FXML
     private ChoiceBox ChoiceBoxDevice;
+    
+    @FXML
+    private CheckBox CheckBoxRS485;
+    
+    @FXML
+    private TextField TextFieldIpAddress;
 
     @FXML
     private Button ButtonInsert;
@@ -63,12 +70,16 @@ public class AddSlaveWindowController implements Initializable {
         String DeviceType = (String) ChoiceBoxDevice.getSelectionModel().getSelectedItem();
         Integer ModbusSlaveID = SlaveIDNoSpinner.getNumber().intValue();
         String Description = TextDescription.getText();
+        Boolean useRS485 = CheckBoxRS485.isSelected();
+        String IpAddress = TextFieldIpAddress.getText();
 
         if (!isEditMode() ) {
-            SlaveDetail sd = new SlaveDetail(null, DeviceType, ModbusSlaveID, Description);
+            SlaveDetail sd = new SlaveDetail(null, DeviceType, ModbusSlaveID, Description,
+                useRS485, IpAddress);
             returnValue = new SlaveDetailSQLController().Insert(sd);
         } else {
-            SlaveDetail sd = new SlaveDetail(rowid, DeviceType, ModbusSlaveID, Description);
+            SlaveDetail sd = new SlaveDetail(rowid, DeviceType, ModbusSlaveID, Description,
+                useRS485, IpAddress);
             returnValue = new SlaveDetailSQLController().update(sd);
         }
         
@@ -116,5 +127,13 @@ public class AddSlaveWindowController implements Initializable {
     
     public void setModbusID(Integer ID) {
         this.SlaveIDNoSpinner.setNumber(BigDecimal.valueOf(ID));
+    }
+    
+    public void setUseRS485(Boolean useRS485) {
+        this.CheckBoxRS485.setSelected(useRS485);
+    }
+    
+    public void setIpAddress(String IpAddress) {
+        this.TextFieldIpAddress.setText(IpAddress);
     }
 }

@@ -22,7 +22,8 @@ public class SlaveDetailSQLController {
         //Clear the list
         SlaveList.clear();
 
-        String sqlcmd = "SELECT rowid, controllertype, modbusslaveid, longname  FROM slaves";
+        String sqlcmd = "SELECT rowid, controllertype, modbusslaveid, longname,"
+                + "useRS485, IpAddress FROM slaves";
         List resultList = sqlConnection.getInstance().SQLSelectCommand(sqlcmd);
 
         for (int rows = 0; rows < resultList.size(); rows++) {
@@ -32,9 +33,11 @@ public class SlaveDetailSQLController {
             String Type = (String) resultValues.get(1);
             Integer ModbusSlaveID = (Integer) resultValues.get(2);
             String Desc = (String) resultValues.get(3);
+            Boolean useRS485 = (Boolean) resultValues.get(4);
+            String IpAddress = (String) resultValues.get(5);
 
             //Put it into the class
-            SlaveDetail slave = new SlaveDetail(ID, Type, ModbusSlaveID, Desc);
+            SlaveDetail slave = new SlaveDetail(ID, Type, ModbusSlaveID, Desc, useRS485, IpAddress);
 
             //Now add to the Observable List
             SlaveList.add(slave);
@@ -46,6 +49,8 @@ public class SlaveDetailSQLController {
         String DeviceType = slave.getDeviceType();
         String Description = slave.getDescription();
         Integer ModbusSlaveID = slave.getSlaveID();
+        Boolean useRS485 = slave.isUseRS485();
+        String IpAddress = slave.getIpAddress();
 
         //Check Slave ID is not already used
         String sqlcmd = "SELECT * FROM slaves WHERE modbusslaveid="
@@ -55,11 +60,7 @@ public class SlaveDetailSQLController {
         List resultList = sqlConnection.getInstance().SQLSelectCommand(sqlcmd);
 
         if (resultList.size() > 0) {
-            try {
-                new InfoPopup("That slave ID already exists, please change");
-            } catch (Exception e) {
-                EgLogger.logInfo("Popup Failure");
-            }
+            new InfoPopup("That slave ID already exists, please change");
             return false;
         } else {
             //Ok so create a table for the slave based on controllertype
@@ -74,7 +75,7 @@ public class SlaveDetailSQLController {
                     + "`livedata` tinyint(1) NOT NULL DEFAULT '0',"
                     + "`value` int(11) NOT NULL DEFAULT '0',"
                     + "`registervalve` int(4) UNSIGNED NOT NULL DEFAULT '0',"
-                    + "`binaryvalue` varchar(32) DEFAULT ''," 
+                    + "`binaryvalue` varchar(32) DEFAULT '',"
                     + "`is32bit` tinyint(1) NOT NULL DEFAULT '0',"
                     + "`isSigned` tinyint(1) NOT NULL DEFAULT '0',"
                     + "`lowbyteregister` int(11) DEFAULT '0',"
@@ -91,7 +92,9 @@ public class SlaveDetailSQLController {
             //Update entry into master slaves table
             String sqlSlaveEntry = "INSERT INTO slaves SET modbusslaveid=" + ModbusSlaveID
                     + ", controllertype='" + DeviceType + "', "
-                    + "longname='" + Description + "';";
+                    + "longname='" + Description + "', "
+                    + "useRS485=" + useRS485 + ", "
+                    + "IpAddress='" + IpAddress + "';";
             sqlConnection.getInstance().SQLUpdateCommand(sqlSlaveEntry);
 
             //Get the register blocks by slave ID
@@ -127,7 +130,7 @@ public class SlaveDetailSQLController {
             return true;
         }
     }
-    
+
     //Convienence to turn boolean into an integer for storage in Mysql tinyint column
     public int tinyIntBoolean(Boolean value) {
         if (value) {
@@ -150,13 +153,16 @@ public class SlaveDetailSQLController {
         String DeviceType = sd.getDeviceType();
         String Description = sd.getDescription();
         Integer ModbusSlaveID = sd.getSlaveID();
+        Boolean useRS485 = sd.isUseRS485();
+        String IpAddress = sd.getIpAddress();
 
         try {
-            String sqlcmd = "UPDATE slaves SET modbusslaveid=" + ModbusSlaveID
-                    + ", " + "longname='" + Description + "', "
-                    + "controllertype='" + DeviceType + "' "
+            String sqlcmd = "UPDATE slaves SET modbusslaveid=" + ModbusSlaveID + ", " 
+                    + "longname='" + Description + "', "
+                    + "controllertype='" + DeviceType + "', "
+                    + "useRS485=" + useRS485 + ", "
+                    + "IpAddress='" + IpAddress + "' "
                     + "WHERE rowid=" + ID + ";";
-
             sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
             return true;
         } catch (Exception e) {

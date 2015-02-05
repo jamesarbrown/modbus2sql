@@ -15,20 +15,20 @@ public class TableControllerSlaves {
 
     private static TableControllerSlaves instance;
     private static TableView tv;
-    
+
     //Singleton
     public static TableControllerSlaves getInstance() {
         if (instance == null) {
             instance = new TableControllerSlaves();
-    }
+        }
         return instance;
     }
-    
+
     public TableControllerSlaves() {
         mainWindowController mwc = mainWindow.getInstance().getMainWindowController();
         tv = mwc.getTable_SlaveDetail();
         tv.setEditable(false);
-        
+
         //Update the columns to link to the data
         TableColumn ta = (TableColumn) tv.getColumns().get(0);
         ta.setCellValueFactory(
@@ -39,7 +39,7 @@ public class TableControllerSlaves {
         tb.setCellValueFactory(
                 new PropertyValueFactory<>("SlaveID")
         );
-        
+
         TableColumn tc = (TableColumn) tv.getColumns().get(2);
         tc.setCellValueFactory(
                 new PropertyValueFactory<>("Description")
@@ -49,10 +49,20 @@ public class TableControllerSlaves {
         td.setCellValueFactory(
                 new PropertyValueFactory<>("DeviceType")
         );
-        
+
+        TableColumn te = (TableColumn) tv.getColumns().get(4);
+        te.setCellValueFactory(
+                new PropertyValueFactory<>("UseRS485")
+        );
+
+        TableColumn tf = (TableColumn) tv.getColumns().get(5);
+        tf.setCellValueFactory(
+                new PropertyValueFactory<>("IpAddress")
+        );
+
         refreshSlaveDetailTable();
     }
-    
+
     public void refreshSlaveDetailTable() {
         //Get the data
         SlaveDetailSQLController dtc = new SlaveDetailSQLController();
@@ -78,5 +88,5 @@ public class TableControllerSlaves {
         }
         refreshSlaveDetailTable();
     }
-    
+
 }

@@ -418,6 +418,8 @@ public class mainWindowController implements Initializable, appInterface {
             wc.setRowid(slave.getRowID());
             wc.setDescription(slave.getDescription());
             wc.setModbusID(slave.getSlaveID());
+            wc.setUseRS485(slave.isUseRS485());
+            wc.setIpAddress(slave.getIpAddress());
 
             dialog.show();
         } catch (Exception e) {

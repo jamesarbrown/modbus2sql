@@ -207,8 +207,10 @@
                                                             <columns>
                                                                 <TableColumn minWidth="120.0" prefWidth="120.0" text="UniqueID" />
                                                                 <TableColumn prefWidth="75.0" text="Slave ID" />
-                                                                <TableColumn minWidth="400.0" prefWidth="400.0" text="Long Name" />
-                                                                <TableColumn minWidth="150.0" prefWidth="150.0" text="Device Type" />
+                                                                <TableColumn minWidth="250.0" prefWidth="250.0" text="Long Name" />
+                                                                <TableColumn minWidth="120.0" prefWidth="120.0" text="Device Type" />
+                                                <TableColumn prefWidth="75.0" text="RS485" />
+                                                <TableColumn maxWidth="100.0" minWidth="120.0" prefWidth="120.0" text="IP Address" />
                                                             </columns>
                                                         </TableView>
                                                         <HBox prefWidth="200.0" spacing="10.0">
