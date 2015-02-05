@@ -9,27 +9,22 @@ import java.util.List;
 
 public class Port {
 
-    public List getComPorts() {
+    public List getComPorts() throws Exception {
         //Modifies path to include for Fedora yum install of rxtx
         //String path = System.getProperty("java.library.path");
         //System.setProperty("java.library.path", path + ":/usr/lib64/rxtx");
+        
+        //Get the ports
+        Enumeration ports = CommPortIdentifier.getPortIdentifiers();
 
-        try {
-            //Get the ports
-            Enumeration ports = CommPortIdentifier.getPortIdentifiers();
+        //Setup and Enumerate the ports
+        List portlist = new LinkedList();
 
-            //Setup and Enumerate the ports
-            List portlist = new LinkedList();
-            
-            while (ports.hasMoreElements()) {
-                CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
-                portlist.add(port.getName());
-            }
-            return portlist;
-        } catch (Exception e) {
-            new InfoPopup("Unable to find the RXTX serial drivers");
-            return null;
+        while (ports.hasMoreElements()) {
+            CommPortIdentifier port = (CommPortIdentifier) ports.nextElement();
+            portlist.add(port.getName());
         }
+        return portlist;
     }
 
 }

@@ -597,14 +597,19 @@ public class mainWindowController implements Initializable, appInterface {
 
     @FXML
     private void RS485ButtonQueryPorts_click() {
-        List PortList = new Port().getComPorts();
-        RS485ComboBoxComPort.getItems().clear();
+        try {
+            List PortList = new Port().getComPorts();
+            RS485ComboBoxComPort.getItems().clear();
 
-        for (int i = 0; i < PortList.size(); i++) {
-            RS485ComboBoxComPort.getItems().add((String) PortList.get(i));
+            for (int i = 0; i < PortList.size(); i++) {
+                RS485ComboBoxComPort.getItems().add((String) PortList.get(i));
+            }
+
+            RS485ComboBoxComPort.getSelectionModel().selectFirst();
+        } catch (Exception e) {
+            new InfoPopup("Could not get the ports, check RXTX is installed");
+            EgLogger.logSevere("Unable to query com ports");
         }
-
-        RS485ComboBoxComPort.getSelectionModel().selectFirst();
     }
 
     @FXML
