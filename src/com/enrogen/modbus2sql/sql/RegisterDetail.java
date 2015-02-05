@@ -1,5 +1,6 @@
 package com.enrogen.modbus2sql.sql;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -12,18 +13,18 @@ public class RegisterDetail {
     private final SimpleIntegerProperty PageNo = new SimpleIntegerProperty();
     private final SimpleStringProperty Description = new SimpleStringProperty();
     private final SimpleIntegerProperty Bits = new SimpleIntegerProperty();
-    private final SimpleIntegerProperty Signed = new SimpleIntegerProperty();
+    private final SimpleBooleanProperty Signed = new SimpleBooleanProperty();
     private final SimpleIntegerProperty LowByteRegister = new SimpleIntegerProperty();
     private final SimpleDoubleProperty ScalingFactor = new SimpleDoubleProperty();
     private final SimpleDoubleProperty MinimumValue = new SimpleDoubleProperty();
     private final SimpleDoubleProperty MaximumValue = new SimpleDoubleProperty();
     private final SimpleStringProperty Units = new SimpleStringProperty();
-    private final SimpleIntegerProperty Writeable = new SimpleIntegerProperty();
+    private final SimpleBooleanProperty Writeable = new SimpleBooleanProperty();
     private final SimpleIntegerProperty UnimplementedValue = new SimpleIntegerProperty();
 
     public RegisterDetail(Integer rowid, Integer RegisterNo, String DeviceType, Integer PageNo, String Description,
-            Integer Bits, Integer Signed, Integer LowByteRegister, Double ScalingFactor, Double MinimumValue,
-             Double MaximumValue, String Units, Integer Writeable, Integer UnimplementedValue) {
+            Integer Bits, Boolean Signed, Integer LowByteRegister, Double ScalingFactor, Double MinimumValue,
+             Double MaximumValue, String Units, Boolean Writeable, Integer UnimplementedValue) {
         
         this.rowid.setValue(rowid);
         this.RegisterNo.setValue(RegisterNo);
@@ -65,7 +66,7 @@ public class RegisterDetail {
         return Bits.getValue();
     }
     
-    public Integer getSigned() {
+    public Boolean isSigned() {
         return Signed.getValue();
     }
     
@@ -89,7 +90,7 @@ public class RegisterDetail {
         return Units.getValue();
     }
     
-    public Integer getWriteable() {
+    public Boolean isWriteable() {
         return Writeable.getValue();
     }
     

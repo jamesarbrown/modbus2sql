@@ -186,14 +186,14 @@ public class AddRegisterBlockWindowController implements Initializable, appInter
                 Double ScalingFactor = tryParseDouble(row[4]);
                 String Units = row[5];
                 String bitsString = row[6];
-                Integer Writeable = tryParseInt(row[7]);
+                Boolean Writeable = Boolean.valueOf(row[7]);
                 Integer LowByteRegister = tryParseInt(row[8]);
                 Integer UnimplementedValue = tryParseInt(row[9]);
 
                 //We keep a look out for the first and last row
                 //and whether its signed etc
                 Integer bitsInt;
-                Integer signed;
+                Boolean signed;
 
                 //Record first register
                 if (i == 0) {
@@ -213,9 +213,9 @@ public class AddRegisterBlockWindowController implements Initializable, appInter
                 }
 
                 if (bitsString.contains("S")) {
-                    signed = 1;
+                    signed = true;
                 } else {
-                    signed = 0;
+                    signed = false;
                 }
 
                 //Insert the register
