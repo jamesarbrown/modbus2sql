@@ -11,12 +11,7 @@ public class RegisterBlockSQLController {
     public void RegisterBlockSQLController() {
     }
 
-    public ObservableList getRegisterBlocks() {
-        refresh();
-        return RegisterBlockList;
-    }
-
-    public void refresh() {
+    public ObservableList getRegisterBlocksAll() {
         //Clear the list is already init
         RegisterBlockList.clear();
 
@@ -24,6 +19,27 @@ public class RegisterBlockSQLController {
         String sqlcmd = "SELECT rowid, controllertype, page, registerstart, registerend, "
                 + "modbusfunctiontype, description FROM registerblocks "
                 + "ORDER BY controllertype, page;";
+        getFillRegisters(sqlcmd);
+        
+        return RegisterBlockList;
+    }
+    
+    //This method used by ModbusThread
+    public ObservableList getRegisterBlocksBySlaveID(SlaveDetail sd) {
+        //Clear the list is already init
+        RegisterBlockList.clear();
+
+        //Now fill the table
+        String sqlcmd = "SELECT rowid, controllertype, page, registerstart, " 
+                + "registerend,  modbusfunctiontype, description FROM "
+                + "registerblocks WHERE "
+                + "controllertype='" + sd.getDeviceType() + "';";
+        getFillRegisters(sqlcmd);
+        
+        return RegisterBlockList;
+    }
+    
+    private void getFillRegisters(String sqlcmd) {
         List resultList = sqlConnection.getInstance().SQLSelectCommand(sqlcmd);
 
         for (int rows = 0; rows < resultList.size(); rows++) {
@@ -44,7 +60,7 @@ public class RegisterBlockSQLController {
             RegisterBlockList.add(registerBlock);
         }
     }
-
+        
     public boolean insert(RegisterBlock rb) {
         try {
             String SqlCmd = "INSERT INTO registerblocks SET controllertype='"

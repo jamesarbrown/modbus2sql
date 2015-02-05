@@ -63,8 +63,7 @@ public class TableControllerRegisterBlocks {
     public void refreshRegisterBlocksTable() {
         //Get the data
         RegisterBlockSQLController dtc = new RegisterBlockSQLController();
-        dtc.refresh();
-        ObservableList<RegisterBlock> registerList = dtc.getRegisterBlocks();
+        ObservableList<RegisterBlock> registerList = dtc.getRegisterBlocksAll();
         tv.getItems().clear();
         tv.setItems(registerList);
     }
