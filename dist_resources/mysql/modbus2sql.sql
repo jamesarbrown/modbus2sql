@@ -101,6 +101,8 @@ CREATE TABLE `slaves` (
   `modbusslaveid` int(11) DEFAULT NULL,
   `longname` varchar(150) DEFAULT NULL,
   `controllertype` varchar(15) NOT NULL,
+  `useRS485` TINYINT(1) NOT NULL DEFAULT 1,
+  `ipAddress` VARCHAR(45) DEFAULT NULL,
   PRIMARY KEY (`rowid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
