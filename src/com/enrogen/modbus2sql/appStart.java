@@ -1,24 +1,14 @@
 package com.enrogen.modbus2sql;
 
-import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerDeviceTypes;
 import com.enrogen.modbus2sql.appInterface.appInterface;
 import com.enrogen.modbus2sql.configuration.config;
-import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerAlarmDescriptor;
-import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerAlarmFlag;
-import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerRegisterBlocks;
-import com.enrogen.modbus2sql.javafx.tablecontroller.TableControllerSlaves;
-import com.enrogen.modbus2sql.javafx.windowcontroller.mainWindowController;
 import com.enrogen.modbus2sql.logger.EgLogger;
-import com.enrogen.modbus2sql.sql.sqlConnection;
 import com.enrogen.modbus2sql.threads.MainThread;
 import com.enrogen.modbus2sql.threads.SQLThread;
-import javafx.animation.Animation;
-import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class appStart extends Application implements appInterface {
 
