@@ -89,6 +89,16 @@ public class SlaveDetailSQLController {
                     + ") ENGINE=MyISAM DEFAULT CHARSET=latin1;";
             sqlConnection.getInstance().SQLUpdateCommand(sqlCreateTable);
 
+            //These are convienence fields for EnrogenHMI to be deprecated
+            sqlcmd = "ALTER TABLE `modbus2sql`.`"+ tablename + "`"
+                 + "ADD COLUMN `16binary` VARCHAR(16) NOT NULL DEFAULT '0000000000000000' AFTER `writedata`, "
+                 + "ADD COLUMN `16hex` char(10) NOT NULL DEFAULT '0x0000',"
+                 + "ADD COLUMN `16integer` bigint(20) NOT NULL DEFAULT '0',"
+                 + "ADD COLUMN `32binary` varchar(32) DEFAULT NULL,"
+                 + "ADD COLUMN `32hex` char(20) DEFAULT NULL,"
+                 + "ADD COLUMN `32integer` bigint(20) DEFAULT NULL;";
+            sqlConnection.getInstance().SQLUpdateCommand(sqlcmd);
+            
             //Update entry into master slaves table
             String sqlSlaveEntry = "INSERT INTO slaves SET modbusslaveid=" + ModbusSlaveID
                     + ", controllertype='" + DeviceType + "', "
@@ -157,7 +167,7 @@ public class SlaveDetailSQLController {
         String IpAddress = sd.getIpAddress();
 
         try {
-            String sqlcmd = "UPDATE slaves SET modbusslaveid=" + ModbusSlaveID + ", " 
+            String sqlcmd = "UPDATE slaves SET modbusslaveid=" + ModbusSlaveID + ", "
                     + "longname='" + Description + "', "
                     + "controllertype='" + DeviceType + "', "
                     + "useRS485=" + useRS485 + ", "
