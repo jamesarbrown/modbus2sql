@@ -1,20 +1,31 @@
 package com.enrogen.modbus2sql.jamod;
 
 import com.enrogen.modbus2sql.appInterface.appInterface;
+import com.enrogen.modbus2sql.logger.EgLogger;
+import com.enrogen.modbus2sql.sql.RS485Detail;
+import com.enrogen.modbus2sql.sql.RS485DetailSQLController;
 import net.wimpi.modbus.ModbusCoupler;
 import net.wimpi.modbus.net.SerialConnection;
 import net.wimpi.modbus.util.SerialParameters;
 
 public class ModbusRS485Connection implements appInterface {
 
+    private static ModbusRS485Connection instance;
     private SerialConnection ModSerialConnection = null;
     private boolean debug = true;
+
+    public static ModbusRS485Connection getInstance() {
+        if (instance == null) {
+            instance = new ModbusRS485Connection();
+        }
+        return instance;
+    }
 
     public ModbusRS485Connection() {
         try {
             if (Boolean.valueOf(System.getProperty("com.enrogen.ModbusConnection.debug"))) {
                 debug = true;
-                System.out.println("com.enrogen.ModbusConnection - Debugging ON");
+                EgLogger.logInfo("Debugging ON");
             } else {
                 debug = false;
             }
@@ -23,15 +34,40 @@ public class ModbusRS485Connection implements appInterface {
         }
     }
 
-    public void CreateRS485Connection(String serialport, String baud, String parity, Integer databits, Integer stopbits) {
+    public SerialConnection getConnection() {
+        try {
+            if (!isRS485Open()) {
+                //Get the RS485 Settings
+                RS485Detail rs485 = new RS485DetailSQLController().getRS485Settings();
+
+                //Setup the serial interface and open it
+                CreateRS485Connection(rs485.getComPort(), rs485.getBaud(),
+                        rs485.getParity(), rs485.getDataBits(), rs485.getStopBits());
+                OpenRS485Connection();
+            }
+
+            //return the serial connection
+            return ModSerialConnection;
+        } catch (Exception e) {
+            EgLogger.logSevere("Unable to Open RS485 Connection, check port settings");
+            return null;
+        }
+    }
+
+    public boolean isRS485Open() {
+        return ModSerialConnection.isOpen();
+    }
+    
+    private void CreateRS485Connection(String serialport, Integer baud, String parity,
+            Integer databits, Integer stopbits) {
         try {
             SerialParameters params = new SerialParameters();
             params.setPortName(serialport);
-            params.setBaudRate(baud);
+            params.setBaudRate(String.valueOf(baud));
             params.setDatabits(databits);
             params.setParity(parity);
             params.setStopbits(stopbits);
-            params.setEncoding("rtu");
+            params.setEncoding(MASTER_ENCODING);
             params.setEcho(COMPORT_ECHO);
             params.setReceiveTimeout(COMPORT_RECEIVE_TIMEOUT);
 
@@ -41,41 +77,33 @@ public class ModbusRS485Connection implements appInterface {
             ModSerialConnection = new SerialConnection(params);
 
             if (debug) {
-                System.out.println("com.enrogen.ModbusConnection - Created RS485 Connection");
+                EgLogger.logInfo("Created RS485 Connection");
             }
         } catch (Exception e) {
-            System.err.println("com.enrogen.ModbusConnection - Can Not Open RS485 Connection");
+            EgLogger.logSevere("Can Not Open RS485 Connection");
             e.printStackTrace();
         }
     }
 
-    public boolean OpenRS485Connection() {
+    private boolean OpenRS485Connection() {
         try {
             ModSerialConnection.open();
             if (debug) {
-                System.out.println("com.enrogen.ModbusConnection - Opened RS485 Connection");
+                EgLogger.logInfo("Opened RS485 Connection");
             }
         } catch (Exception e) {
-            System.err.println("com.enrogen.ModbusConnection - Unable to Open RS485 Connection");
+            EgLogger.logSevere("]Unable to Open RS485 Connection");
             e.printStackTrace();
             return false;
         }
         return true;
     }
 
-    public boolean isRS485Open() {
-        return ModSerialConnection.isOpen();
-    }
-
-    public SerialConnection getSerialRS485Connection() {
-        return ModSerialConnection;
-    }
-
-    public void DestroyRS485Connection() {
+    public void closeConnection() {
         ModSerialConnection.close();
         if (debug) {
-            System.out.println("com.enrogen.ModbusConnection - Closed RS485 Connection");
+            EgLogger.logInfo("com.enrogen.ModbusConnection - Closed RS485 Connection");
         }
     }
-}
 
+}
