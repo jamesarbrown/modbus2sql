@@ -63,6 +63,14 @@ public class ModbusRegister {
             }
         }
     }
+    
+    public Integer getHighWord() {
+        return Register[0] | Register[1];
+    } 
+   
+    public Integer getLowWord() {
+        return Register[2] | Register[3];
+    } 
 
     //32Bit Unsigned Integer
     public void setValue(Long UnsignedInteger) {
