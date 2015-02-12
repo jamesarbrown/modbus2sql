@@ -3,9 +3,10 @@ package com.enrogen.modbus2sql.jamod;
 public class ModbusRegister {
 
     //Variables
+    private Integer registerNo;
     private boolean is32Bit;
     private boolean isSigned;
-    private Integer registerNo;
+    private Integer ModbusFunctionCode;
     
     //A 32 bit register
     private final byte[] Register = new byte[4];
@@ -114,4 +115,13 @@ public class ModbusRegister {
     public Integer getRegisterNo() {
         return registerNo;
     }  
+
+    public Integer getModbusFunctionCode() {
+        return ModbusFunctionCode;
+    }
+
+    public void setModbusFunctionCode(Integer ModbusFunctionCode) {
+        this.ModbusFunctionCode = ModbusFunctionCode;
+    }
+    
 }
