@@ -125,10 +125,10 @@ public class AddRegisterBlockWindowController implements Initializable, appInter
             new InfoPopup("There was an issue opening the CSV file");
             return;
         }
-        
+
         //Push the Table Controller
         TableControllerRegisterBlocks.getInstance().refreshRegisterBlocksTable();
-        
+
         //Now close the window
         Stage stage = (Stage) ButtonInsert.getScene().getWindow();
         stage.close();
@@ -189,6 +189,7 @@ public class AddRegisterBlockWindowController implements Initializable, appInter
                 Boolean Writeable = Boolean.valueOf(row[7]);
                 Integer LowByteRegister = tryParseInt(row[8]);
                 Integer UnimplementedValue = tryParseInt(row[9]);
+                Integer ModbusFunctionCode = tryParseInt(row[10]);
 
                 //We keep a look out for the first and last row
                 //and whether its signed etc
@@ -221,7 +222,7 @@ public class AddRegisterBlockWindowController implements Initializable, appInter
                 //Insert the register
                 RegisterDetail rd = new RegisterDetail(null, RegisterNo, DeviceType, PageNo,
                         Description, bitsInt, signed, LowByteRegister, ScalingFactor, MinimumValue,
-                        MaximumValue, Units, Writeable, UnimplementedValue);
+                        MaximumValue, Units, Writeable, UnimplementedValue, ModbusFunctionCode);
                 new RegisterDetailSQLController().insert(rd);
 
                 //End for

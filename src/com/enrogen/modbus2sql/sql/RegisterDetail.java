@@ -21,10 +21,12 @@ public class RegisterDetail {
     private final SimpleStringProperty Units = new SimpleStringProperty();
     private final SimpleBooleanProperty Writeable = new SimpleBooleanProperty();
     private final SimpleIntegerProperty UnimplementedValue = new SimpleIntegerProperty();
+    private final SimpleIntegerProperty ModbusFunctionCode = new SimpleIntegerProperty();
+    
 
     public RegisterDetail(Integer rowid, Integer RegisterNo, String DeviceType, Integer PageNo, String Description,
             Integer Bits, Boolean Signed, Integer LowByteRegister, Double ScalingFactor, Double MinimumValue,
-             Double MaximumValue, String Units, Boolean Writeable, Integer UnimplementedValue) {
+             Double MaximumValue, String Units, Boolean Writeable, Integer UnimplementedValue, Integer ModbusFunctionCode) {
         
         this.rowid.setValue(rowid);
         this.RegisterNo.setValue(RegisterNo);
@@ -40,6 +42,7 @@ public class RegisterDetail {
         this.Units.setValue(Units);
         this.Writeable.setValue(Writeable);
         this.UnimplementedValue.setValue(UnimplementedValue);
+        this.ModbusFunctionCode.setValue(ModbusFunctionCode);
     }
     
     public Integer getRowID() {
@@ -98,4 +101,7 @@ public class RegisterDetail {
         return UnimplementedValue.getValue();
     }
     
+    public Integer getModbusFunctionCode() {
+        return ModbusFunctionCode.getValue();
+    }
 }

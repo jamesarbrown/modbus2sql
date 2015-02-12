@@ -85,6 +85,7 @@ public class SlaveDetailSQLController {
                     + "`units` varchar(50) DEFAULT NULL,"
                     + "`changeflag` tinyint(4) NOT NULL DEFAULT '0',"
                     + "`writedata` int(11) NOT NULL DEFAULT '0',"
+                    + "`modbusfunctiontype` int(4) NOT NULL DEFAULT '16', "
                     + "PRIMARY KEY (`rowid`)"
                     + ") ENGINE=MyISAM DEFAULT CHARSET=latin1;";
             sqlConnection.getInstance().SQLUpdateCommand(sqlCreateTable);
@@ -132,6 +133,7 @@ public class SlaveDetailSQLController {
                             + "description='" + registerdetail.getDescription() + "', "
                             + "is32bit=" + is32bit + ", "
                             + "isSigned=" + tinyIntBoolean(registerdetail.isSigned()) + ","
+                            + "modbusfunctiontype=" +registerdetail.getModbusFunctionCode() + ","
                             + "lowbyteregister=" + registerdetail.getLowByteRegister() + ";";
 
                     sqlConnection.getInstance().SQLUpdateCommand(sqlInsertRegister);
