@@ -18,6 +18,11 @@ public interface appInterface {
     public static final boolean DEBUG_SQL = true;
     public static final boolean DEBUG_MODBUS_CONNECTION = true;
 
+    //Window Defaults
+    public static final int MINIMUM_H_WINDOW_SIZE = 750;
+    public static final int MINIMUM_V_WINDOW_SIZE = 400;
+    
+    
     //The timer events
     public static final int SYSTEM_ALIVE_POLL_TICKER = 1000; //mSec
     public static final int MODBUS_POLL_TICKER = 2000; //mSec
