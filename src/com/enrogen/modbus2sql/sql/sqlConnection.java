@@ -49,6 +49,9 @@ public class sqlConnection implements appInterface {
 
     //Main routine
     public void initSQL() {
+        //Kill the SQL Connection if already open
+        closeSQLConnection();
+        
         //get a reference to the mainWindow
         mainWindowController mwc = mainWindow.getInstance().getMainWindowController();
 
@@ -85,9 +88,7 @@ public class sqlConnection implements appInterface {
         try {
             Class.forName(driverName);
             connection = DriverManager.getConnection(SQLUrl, SQLUserString, SQLPasswordString);
-            if (debug) {
-                EgLogger.logInfo("Opened SQL Connection");
-            }
+            SqlAlive = true;
             return true;
         } catch (ClassNotFoundException e) {
             EgLogger.logSevere("Error at openSQLConnection");
@@ -112,16 +113,19 @@ public class sqlConnection implements appInterface {
             if (connection != null) {
                 if (!connection.isClosed()) {
                     connection.close();
+                    if (debug) {
+                        EgLogger.logInfo("Closed SQL Connection");
+                    }
                 }
-            }
-            if (debug) {
-                EgLogger.logInfo("Closed SQL Connection");
             }
         } catch (SQLException sqle) {
             EgLogger.logSevere("Error at closeSQLConnection");
         } catch (Exception e) {
             EgLogger.logSevere("Error at closeSQLConnection");
         }
+
+        //Dump the existing SQL connection
+        connection = null;
     }
 
     private void restartSQLConnection() {
@@ -138,21 +142,21 @@ public class sqlConnection implements appInterface {
 
         //Run the SQL command
         try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery(SQL_TEST_COMMAND);
-            while (rs.next()) {
-                Alive = true;
+            if (connection != null) {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(SQL_TEST_COMMAND);
+                while (rs.next()) {
+                    Alive = true;
+                }
+                stmt.close();
             }
-            stmt.close();
         } catch (SQLException sqle) {
             EgLogger.logSevere("Error at checkSQLConnection");
         } catch (Exception e) {
             EgLogger.logSevere("Error at checkSQLConnection");
         }
+
         SqlAlive = Alive;
-        if (debug) {
-            EgLogger.logInfo("SQL Ping : " + Alive);
-        }
         return Alive;
     }
 
@@ -194,6 +198,10 @@ public class sqlConnection implements appInterface {
 
     public int getResultColumnCount() {
         return ResultColCount;
+    }
+
+    public ResultSetMetaData getResultSetMetaData() {
+        return rsmd;
     }
 
     //Use for insert and update
@@ -250,15 +258,13 @@ public class sqlConnection implements appInterface {
     public void CheckAndRestartSQLCon() {
         checkSQLConnection();
         if (!isAlive()) {
-            if (debug) {
-                EgLogger.logSevere("Attempting to Restart SQL Connection");
-            }
+            EgLogger.logInfo("No SQL Connection, Attempting to Start");
             restartSQLConnection();
             if (debug) {
                 if (isAlive()) {
-                    EgLogger.logInfo("Success");
+                    EgLogger.logInfo("Successfully Started SQL Connection");
                 } else {
-                    EgLogger.logSevere("Failed");
+                    EgLogger.logSevere("Failed to Start SQL Connection");
                 }
             }
         }

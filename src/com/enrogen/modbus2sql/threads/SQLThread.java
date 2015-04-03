@@ -24,9 +24,6 @@ public class SQLThread {
     public SQLThread() {
         //Init the watchdog timer
         if (sqlWatchdogTimer == null) {
-            //Create a thread to flash the lamps
-            EgLogger.logInfo("Starting sql Watchdog Ticker at : " + SQL_KEEP_ALIVE_INTERVAL + "mSec");
-
             sqlWatchdogTimer = new Timeline(new KeyFrame(
                     Duration.millis(SQL_KEEP_ALIVE_INTERVAL),
                     ae -> sqlConnection.getInstance().CheckAndRestartSQLCon()));
@@ -36,7 +33,9 @@ public class SQLThread {
 
     public void StartSQLThread() {
         //Ensure there is an SQLconnection instance created
-        sqlConnection.getInstance().initSQL();
+        sqlConnection sqlc = sqlConnection.getInstance();
+        sqlc.initSQL();
+        sqlc.CheckAndRestartSQLCon();
         
         //Now start the Keep Alive thread
         EgLogger.logInfo("Starting SQL Keep Alive Thread: " + SQL_KEEP_ALIVE_INTERVAL + "msec");
@@ -44,7 +43,7 @@ public class SQLThread {
     }
 
     public void StopSQLThread() {
-        EgLogger.logInfo("Stopping Keep Alive Thread");
+        EgLogger.logInfo("Stopping SQL Keep Alive Thread");
         sqlWatchdogTimer.stop();
     }
 
