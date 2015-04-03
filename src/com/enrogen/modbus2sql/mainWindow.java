@@ -33,7 +33,7 @@ public class mainWindow implements appInterface {
         stage.setScene(scene);
         stage.setTitle("Modbus2SQL");
         stage.setMinWidth(MINIMUM_H_WINDOW_SIZE);
-        stage.setMinHeight(MINIMUM_V_WINDOW_SIZE);
+        stage.setMaximized(true);
         stage.show();
     }
 
