@@ -1,3 +1,5 @@
+This is really old work from 2015, it worked at the time and has not been revisited
+
 Modbus2SQL Server
 ==================
 
